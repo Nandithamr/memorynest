@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemoryNest — A Shared Diary for Distance Friends</title>
+    <meta name="description"
+        content="MemoryNest is a cozy shared diary for long-distance friends. Capture photos, write memories, and relive moments together." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪺</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="app-header">
+        <a class="logo" href="#" id="logoLink">
+            <div class="logo-icon">🪺</div>
+            <div>
+                <span class="logo-text">MemoryNest</span>
+                <span class="logo-sub">shared memories · forever treasured</span>
+            </div>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-view="feed">📜 Feed</li>
+                <li class="nav-tab" data-view="gallery">📷 Gallery</li>
+                <li class="nav-tab" data-view="friends">💛 Friends</li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <button class="btn-icon" id="btnRemember" title="Surprise me with a memory!"
+                aria-label="Remember This">🔔</button>
+            <button class="btn-primary" id="btnAddMemory" aria-label="Add Memory">
+                <span>✨</span>
+                <span>Add Memory</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ═══════════════ MAIN ═══════════════ -->
+    <main class="app-main">
+
+        <!-- ── FEED VIEW ── -->
+        <section class="view active" id="view-feed">
+            <div class="hero">
+                <span class="hero-label">✦ Your Shared Diary</span>
+                <h1>Memories live here,<br />distance doesn't matter</h1>
+                <p>Every moment you share becomes a treasure. No matter how far apart, you're always together here.</p>
+            </div>
+            <div class="feed-container" id="feedContainer">
+                <!-- Cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- ── GALLERY VIEW ── -->
+        <section class="view" id="view-gallery">
+            <h2 class="section-title serif">Photo Gallery</h2>
+            <p class="section-sub">All the beautiful moments, right in one place.</p>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Items injected by JS -->
+            </div>
+            <div id="galleryEmpty" class="feed-empty hidden">
+                <span class="empty-icon">📷</span>
+                <p>No photos yet. Add a memory with a photo to see it here!</p>
+            </div>
+        </section>
+
+        <!-- ── FRIENDS VIEW ── -->
+        <section class="view" id="view-friends">
+            <h2 class="section-title serif">Your Nest mates</h2>
+            <p class="section-sub">The people who make distance feel like nothing.</p>
+            <div class="friends-grid" id="friendsGrid">
+                <!-- Cards injected by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ ADD MEMORY MODAL ═══════════════ -->
+    <div class="modal-backdrop hidden" id="addMemoryModal" role="dialog" aria-modal="true"
+        aria-labelledby="memoryModalTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title serif" id="memoryModalTitle">✨ Add a Memory</h2>
+                <button class="modal-close" id="closeMemoryModal" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Photo upload -->
+                <div class="form-group">
+                    <label class="form-label">Photo</label>
+                    <div class="photo-upload-area" id="photoUploadArea">
+                        <input type="file" id="photoInput" accept="image/*" aria-label="Upload photo" />
+                        <span class="upload-icon">🖼️</span>
+                        <p class="upload-label">Drag & drop or <strong>click to upload</strong></p>
+                        <img class="photo-preview" id="photoPreview" alt="Preview" />
+                    </div>
+                </div>
+
+                <!-- Caption -->
+                <div class="form-group">
+                    <label class="form-label" for="captionInput">Caption</label>
+                    <textarea class="form-textarea" id="captionInput" placeholder="What made this moment special? ✨"
+                        rows="3"></textarea>
+                </div>
+
+                <!-- Info row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="authorSelect">Your Name</label>
+                        <select class="form-select" id="authorSelect">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="memoryDate">Date</label>
+                        <input type="date" class="form-input" id="memoryDate" />
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="form-group">
+                    <label class="form-label" for="tagsInput">Tags <span
+                            style="font-weight:300">(comma-separated)</span></label>
+                    <input type="text" class="form-input" id="tagsInput"
+                        placeholder="beach trip, silly, late night call…" />
+                </div>
+
+                <!-- Mood -->
+                <div class="form-group">
+                    <label class="form-label">Mood</label>
+                    <div class="mood-grid" id="moodGrid">
+                        <button class="mood-btn" data-mood="😊" title="Happy">😊</button>
+                        <button class="mood-btn" data-mood="😂" title="Funny">😂</button>
+                        <button class="mood-btn" data-mood="🥺" title="Nostalgic">🥺</button>
+                        <button class="mood-btn" data-mood="❤️" title="Love">❤️</button>
+                        <button class="mood-btn" data-mood="🌅" title="Peaceful">🌅</button>
+                        <button class="mood-btn" data-mood="🎉" title="Celebration">🎉</button>
+                        <button class="mood-btn" data-mood="🌙" title="Late Night">🌙</button>
+                        <button class="mood-btn" data-mood="🍃" title="Calm">🍃</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelMemory">Cancel</button>
+                <button class="btn-primary" id="saveMemory">💾 Save Memory</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ ADD FRIEND MODAL ═══════════════ -->
+    <div class="modal-backdrop hidden" id="friendModal" role="dialog" aria-modal="true"
+        aria-labelledby="friendModalTitle">
+        <div class="modal" style="max-width:420px">
+            <div class="modal-header">
+                <h2 class="modal-title serif" id="friendModalTitle">💛 Add a Friend</h2>
+                <button class="modal-close" id="closeFriendModal" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="friendNameInput">Name / Nickname</label>
+                    <input type="text" class="form-input" id="friendNameInput"
+                        placeholder="e.g. Priya, Bestie 🌸, Ruhaan…" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="friendEmojiInput">Avatar Emoji</label>
+                    <input type="text" class="form-input" id="friendEmojiInput"
+                        placeholder="🌸 · 🌈 · 🦋 · 🌙 (optional)" maxlength="4" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelFriend">Cancel</button>
+                <button class="btn-primary" id="saveFriend">Add to Nest</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ REMEMBER THIS POPUP ═══════════════ -->
+    <div class="remember-popup hidden" id="rememberPopup" role="complementary" aria-label="Remember This Memory">
+        <div class="popup-glow"></div>
+        <div class="popup-badge">
+            <span class="popup-badge-dot"></span>
+            🕰️ Remember This…
+        </div>
+        <img class="popup-photo" id="popupPhoto" src="" alt="Memory photo" />
+        <div class="popup-body">
+            <div class="popup-meta">
+                <div class="popup-author">
+                    <div class="popup-avatar" id="popupAvatar"></div>
+                    <span id="popupAuthorName"></span>
+                </div>
+                <span class="popup-date" id="popupDate"></span>
+            </div>
+            <p class="popup-caption" id="popupCaption"></p>
+            <div class="popup-footer">
+                <button class="btn-primary" id="popupLike" style="font-size:0.82rem; padding:7px 16px;">❤️ Love
+                    this</button>
+                <button class="popup-close" id="closePopup" aria-label="Dismiss">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ TOAST ═══════════════ -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Supabase client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Your project credentials -->
+    <script src="config.js"></script>
+    <!-- App -->
+    <script src="app.js"></script>
+</body>
+
+</html>
