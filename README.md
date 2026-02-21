@@ -2,15 +2,15 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [MemoryNest] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Shecodes]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Nanditha M R] - [SNM INSTITUTE OF MANAGMENT AND TECHNOLOGIES]
+- Member 2: [Anusree A] - [SNM INSTITUTE OF MANAGMENT AND TECHNOLOGIES]
 
 ### Hosted Project Link
 [mention your project hosted link here]
@@ -31,15 +31,10 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
-
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Languages used: [CSS,JAVASCRIPT,HTML]
+- Frameworks used: []
+- Libraries used: []
+- Tools used: [ Antigravity, supabase ]
 
 ---
 
@@ -67,13 +62,6 @@ List the key features of your project:
 [Run commands - e.g., npm start, python app.py]
 ```
 
-### For Hardware:
-
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
 
 ---
 
