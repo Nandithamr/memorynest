@@ -13,16 +13,16 @@
 - Member 2: [Anusree A] - [SNM INSTITUTE OF MANAGMENT AND TECHNOLOGIES]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://memorynest.vercel.app/]
 
 ### Project Description
-[2-3 lines about what your project does]
+[MemoryNest is a shared digital diary platform that helps long-distance users maintain emotional connections through shared memories and real-time syncing. It allows paired users to write entries, tag moods, and view a common timeline. The smart “Remember This?” feature resurfaces meaningful past memories based on emotional and inactivity triggers.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Long-distance users struggle to maintain emotional connection due to limited shared experiences and lack of meaningful memory reminders. Important moments are often forgotten without an intelligent system to document and resurface them.]
 
 ### The Solution
-[How are you solving it?]
+[MemoryNest provides a shared digital diary where long-distance users can store memories, tag emotions, and view a synchronized timeline. Its smart “Remember This?” feature automatically resurfaces meaningful past memories based on inactivity, mood changes, and date-based triggers to strengthen emotional connection.]
 
 ---
 
@@ -41,10 +41,10 @@
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [Two (or multiple) users share one private digital diary]
+- Feature 2: [Only invited members can view or write]
+- Feature 3: [Secure authentication (Supabase Auth)]
+- Feature 4: [Real-time syncing]
 
 ---
 
@@ -54,7 +54,7 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+[npm install]
 ```
 
 #### Run
@@ -71,21 +71,30 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1](<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/34976621-b816-4ea8-b820-38d1e9dcc6c1" />
+)
+*this is the login page of our project*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/839e7962-795e-431a-8afa-a57210c40689" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+)
+*this is the feed page of our project*
+
+![Screenshot3](<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/92fe04c4-eb6c-4693-944b-67bf3ac1aa99" />
+
+)
+*this is the page where we can add memories*
 
 #### Diagrams
 
 **System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+![Architecture Diagram](<img width="853" height="1280" alt="image" src="https://github.com/user-attachments/assets/fe4e2a75-24ad-489d-a0e3-b9b899efdf04" />
+)
+*Explain your system architecture - MemoryNest follows a Client–Server architecture with real-time database synchronization and a trigger-based memory engine.
+Frontend: Users interact through a web app to add diary entries, select moods, and view memory pop-ups..
+Real-Time Sync: Updates both users instantly when new entries are added.
+Trigger Engine: Periodically checks conditions like inactivity, same date last year, or mood contrast to resurface memories through smart “Remember This?” pop-ups.*
 
 **Application Workflow:**
 
